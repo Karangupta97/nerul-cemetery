@@ -55,14 +55,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Nerul Cemetery - Dignified Burial Services in Navi Mumbai",
-    description: "Compassionate burial services in Sector 2, Nerul, Navi Mumbai. Peaceful grounds, 24/7 support, memorial services for all faiths.",
+    description: "Compassionate burial services in Sector 2, Nerul, Navi Mumbai. Peaceful grounds, memorial services for all faiths.",
     url: 'https://nerul.cemetery.medicares.in',
     siteName: 'Nerul Cemetery',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: 'https://nerul.cemetery.medicares.in/hero-cemetery.jpg',
+        url: 'https://nerul.cemetery.medicares.in/logo.png',
         width: 1200,
         height: 630,
         alt: 'Nerul Cemetery - Peaceful Resting Place in Navi Mumbai',
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Nerul Cemetery - Dignified Burial Services in Navi Mumbai',
-    description: 'Compassionate burial services in Sector 2, Nerul, Navi Mumbai. 24/7 support and memorial services.',
-    images: ['https://nerul.cemetery.medicares.in/hero-cemetery.jpg'],
+    description: 'Compassionate burial services in Sector 2, Nerul, Navi Mumbai.and memorial services.',
+    images: ['https://nerul.cemetery.medicares.in/logo.png'],
   },
   robots: {
     index: true,
