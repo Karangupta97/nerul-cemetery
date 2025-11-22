@@ -1,9 +1,22 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { FaHeart, FaHandshake, FaLeaf, FaUsers, FaAward, FaClock, FaPrayingHands, FaDove } from 'react-icons/fa';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { FaHeart, FaHandshake, FaLeaf, FaUsers, FaAward, FaClock, FaPrayingHands, FaDove, FaTimes } from 'react-icons/fa';
 
 export default function About() {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' });
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxImage({ src, alt });
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
   const values = [
     {
       icon: <FaHeart className="w-8 h-8" />,
@@ -24,29 +37,6 @@ export default function About() {
       icon: <FaPrayingHands className="w-8 h-8" />,
       title: 'Community',
       description: 'Serving families across Navi Mumbai with dedication and care.',
-    },
-  ];
-
-  const stats = [
-    {
-      icon: <FaClock className="w-6 h-6" />,
-      number: '50+',
-      label: 'Years of Service',
-    },
-    {
-      icon: <FaUsers className="w-6 h-6" />,
-      number: '10,000+',
-      label: 'Families Served',
-    },
-    {
-      icon: <FaLeaf className="w-6 h-6" />,
-      number: '15',
-      label: 'Acres of Land',
-    },
-    {
-      icon: <FaAward className="w-6 h-6" />,
-      number: '24/7',
-      label: 'Support Available',
     },
   ];
 
@@ -109,11 +99,11 @@ export default function About() {
   return (
     <div className="bg-warm-white">
       {/* Hero Section - Peaceful Design */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-sage-50/30 via-white to-stone-50/20 py-24 md:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sage-50/30 via-white to-stone-50/20 py-16 sm:py-20 md:py-28 lg:py-32">
         {/* Subtle decorative elements */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-sage-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute bottom-20 right-10 w-64 h-64 bg-stone-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-sage-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-stone-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -143,35 +133,35 @@ export default function About() {
       </section>
 
       {/* Mission Section - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-white relative">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1 }}
             >
-              <div className="inline-flex items-center gap-2 bg-sage-50 px-5 py-2 rounded-full text-sm font-medium text-sage-600 mb-8">
-                <FaLeaf className="w-4 h-4" />
+              <div className="inline-flex items-center gap-2 bg-sage-50 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium text-sage-600 mb-6 sm:mb-8">
+                <FaLeaf className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="tracking-wide">Our Purpose</span>
               </div>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-10 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-8 sm:mb-10 tracking-tight">
                 Mission & Vision
               </h2>
               
-              <div className="space-y-8">
-                <div className="relative pl-6 border-l-2 border-sage-300">
-                  <h3 className="text-xl font-semibold text-stone-800 mb-3">Mission</h3>
-                  <p className="text-base text-stone-600 leading-relaxed font-light">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="relative pl-4 sm:pl-6 border-l-2 border-sage-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-stone-800 mb-2 sm:mb-3">Mission</h3>
+                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
                     To provide a peaceful, dignified, and well-maintained final resting place while offering compassionate support and exceptional service to grieving families across all communities.
                   </p>
                 </div>
                 
-                <div className="relative pl-6 border-l-2 border-stone-300">
-                  <h3 className="text-xl font-semibold text-stone-800 mb-3">Vision</h3>
-                  <p className="text-base text-stone-600 leading-relaxed font-light">
+                <div className="relative pl-4 sm:pl-6 border-l-2 border-stone-300">
+                  <h3 className="text-lg sm:text-xl font-semibold text-stone-800 mb-2 sm:mb-3">Vision</h3>
+                  <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-light">
                     To be the most trusted and respected cemetery in Navi Mumbai, known for our commitment to excellence, compassionate care, and beautiful memorial spaces that honor the lives of those we serve.
                   </p>
                 </div>
@@ -185,21 +175,27 @@ export default function About() {
               transition={{ duration: 1 }}
               className="relative"
             >
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg bg-gradient-to-br from-sage-50 via-white to-stone-50 border border-sage-100">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-12">
-                    <div className="relative mb-6">
-                      <div className="absolute inset-0 bg-sage-200/30 blur-2xl rounded-full"></div>
-                      <FaLeaf className="relative w-24 h-24 md:w-32 md:h-32 text-sage-400/60" />
-                    </div>
-                    <p className="text-stone-500 text-base font-light">Peaceful Grounds</p>
-                    <p className="text-stone-400 text-sm mt-2">Serene Environment</p>
+              <div 
+                className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-sage-100 cursor-pointer group"
+                onClick={() => openLightbox('/nerul-cemetery Image/Worship(Peace).webp', 'Peaceful worship area at Nerul Cemetery')}
+              >
+                <Image
+                  src="/nerul-cemetery Image/Worship(Peace).webp"
+                  alt="Peaceful worship area at Nerul Cemetery"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+                    <p className="text-sage-700 font-semibold text-sm">Click to view</p>
                   </div>
                 </div>
                 
                 {/* Corner elements */}
-                <div className="absolute top-6 right-6 w-16 h-16 border-t border-r border-sage-200 rounded-tr-xl"></div>
-                <div className="absolute bottom-6 left-6 w-16 h-16 border-b border-l border-sage-200 rounded-bl-xl"></div>
+                <div className="absolute top-6 right-6 w-16 h-16 border-t border-r border-white/40 rounded-tr-xl"></div>
+                <div className="absolute bottom-6 left-6 w-16 h-16 border-b border-l border-white/40 rounded-bl-xl"></div>
               </div>
             </motion.div>
           </div>
@@ -207,27 +203,27 @@ export default function About() {
       </section>
 
       {/* Values Section - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-sage-50/40 via-white to-stone-50/30">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gradient-to-b from-sage-50/40 via-white to-stone-50/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
             <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center gap-2 bg-sage-50 px-5 py-2 rounded-full text-sm font-medium text-sage-600 mb-8">
-                <FaHeart className="w-4 h-4" />
+              <div className="inline-flex items-center gap-2 bg-sage-50 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium text-sage-600 mb-6 sm:mb-8">
+                <FaHeart className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="tracking-wide">What Drives Us</span>
               </div>
             </motion.div>
             
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-6 tracking-tight">
+            <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-4 sm:mb-6 tracking-tight">
               Our Core Values
             </motion.h2>
             
-            <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed">
+            <motion.p variants={itemVariants} className="text-base sm:text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed px-4">
               The principles that guide everything we do and every service we provide.
             </motion.p>
           </motion.div>
@@ -264,78 +260,26 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-sage-200/40 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-64 h-64 bg-stone-200/40 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-6 tracking-tight">By the Numbers</h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Decades of service, thousands of families, one commitment to excellence.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group text-center bg-white/60 backdrop-blur-sm p-8 rounded-3xl border border-sage-100/50 shadow-sm hover:shadow-xl transition-all duration-500"
-              >
-                <div className="relative inline-block mb-6">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-sage-100 to-sage-200 rounded-full flex items-center justify-center text-sage-600 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-500">
-                    {stat.icon}
-                  </div>
-                </div>
-                
-                <div className="text-4xl md:text-5xl font-light mb-3 text-sage-700">
-                  {stat.number}
-                </div>
-                
-                <div className="text-base text-stone-600 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Features Grid - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-sage-50/40 via-white to-stone-50/30">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gradient-to-b from-sage-50/40 via-white to-stone-50/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <div className="inline-flex items-center gap-2 bg-sage-50 px-5 py-2 rounded-full text-sm font-medium text-sage-600 mb-8">
-              <FaAward className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 bg-sage-50 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium text-sage-600 mb-6 sm:mb-8">
+              <FaAward className="w-3 h-3 sm:w-4 sm:h-4" />
               <span className="tracking-wide">Why Choose Us</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-6 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-4 sm:mb-6 tracking-tight">
               Excellence in Every Detail
             </h2>
             
-            <p className="text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed px-4">
               From our dedicated staff to our beautiful grounds, every aspect reflects our commitment to quality.
             </p>
           </motion.div>
@@ -345,25 +289,21 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto"
           >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="flex gap-6 p-8 bg-white rounded-3xl border border-sage-100 hover:border-sage-200 transition-all hover:shadow-xl duration-500"
+                className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-sage-100 hover:border-sage-200 transition-all hover:shadow-xl duration-500"
               >
-                <div className="shrink-0">
-                  <div className="w-14 h-14 bg-gradient-to-br from-sage-100 to-sage-200 rounded-2xl flex items-center justify-center text-sage-600 shadow-sm">
-                    {feature.icon}
-                  </div>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-sage-100 to-sage-200 rounded-xl sm:rounded-2xl flex items-center justify-center text-sage-600 shadow-sm mb-3 sm:mb-4 md:mb-5">
+                  {feature.icon}
                 </div>
                 
-                <div>
-                  <h3 className="text-lg font-semibold text-stone-800 mb-2">{feature.title}</h3>
-                  <p className="text-stone-600 leading-relaxed text-sm">{feature.description}</p>
-                </div>
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-stone-800 mb-2">{feature.title}</h3>
+                <p className="text-stone-600 leading-relaxed text-xs sm:text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -371,7 +311,7 @@ export default function About() {
       </section>
 
       {/* History Section - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -380,30 +320,30 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-sage-50 px-5 py-2 rounded-full text-sm font-medium text-sage-600 mb-8">
-                <FaClock className="w-4 h-4" />
+            <div className="text-center mb-10 sm:mb-12">
+              <div className="inline-flex items-center gap-2 bg-sage-50 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium text-sage-600 mb-6 sm:mb-8">
+                <FaClock className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="tracking-wide">Our Journey</span>
               </div>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-6 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-4 sm:mb-6 tracking-tight">
                 Our History
               </h2>
             </div>
 
-            <div className="space-y-8 relative before:absolute before:left-8 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-sage-200 before:via-sage-300 before:to-stone-200">
+            <div className="space-y-6 sm:space-y-8 relative before:absolute before:left-6 sm:before:left-8 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-sage-200 before:via-sage-300 before:to-stone-200">
               {[
                 {
-                  text: "Nerul Cemetery has been an integral part of the Navi Mumbai community for over five decades. Established to serve the growing population of this vibrant city, our cemetery has provided a peaceful and dignified final resting place for thousands of families.",
+                  text: "For over fifty years, Nerul Cemetery has been a gentle presence in the Navi Mumbai community. We began with a simple heartfelt purpose — to offer families a serene resting place where memories can live on in peace and quietness.",
                 },
                 {
-                  text: "Located in the heart of Sector 2, Nerul, our cemetery spans 15 acres of beautifully maintained grounds. Over the years, we have continuously improved our facilities and services to meet the evolving needs of the community while maintaining the tranquil atmosphere that makes our cemetery a place of solace and reflection.",
+                  text: "Nestled in Sector 2, Nerul, our 15-acre grounds are lovingly cared for each day. The trees provide shade, the pathways invite quiet walks, and every corner reflects our genuine care. This is a place where nature and memory come together in harmony.",
                 },
                 {
-                  text: "We take pride in our commitment to excellence, offering burial services that respect all faiths and cultural traditions. Our dedicated team works tirelessly to ensure that every family receives the compassionate care and professional service they deserve during their most difficult moments.",
+                  text: "We welcome families of all faiths and traditions with open hearts. Our team understands the weight of loss and is here to walk alongside you with kindness and understanding. Every service is handled with the utmost gentleness and respect.",
                 },
                 {
-                  text: "Today, Nerul Cemetery stands as a testament to our community&apos;s values of respect, dignity, and remembrance. We continue to honor our legacy while looking forward to serving future generations with the same dedication and care.",
+                  text: "Today, Nerul Cemetery remains a peaceful sanctuary where love and remembrance flow naturally. We are deeply grateful to serve our community and look forward to continuing this meaningful work with warmth and sincerity for many years to come.",
                 },
               ].map((item, index) => (
                 <motion.div
@@ -412,14 +352,14 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative pl-20"
+                  className="relative pl-16 sm:pl-20"
                 >
-                  <div className="absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-sage-500 to-sage-600 rounded-full flex items-center justify-center text-white font-semibold shadow-lg">
+                  <div className="absolute left-0 top-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-sage-500 to-sage-600 rounded-full flex items-center justify-center text-white font-semibold shadow-lg text-sm sm:text-base">
                     {index + 1}
                   </div>
                   
-                  <div className="bg-white p-6 rounded-2xl shadow-md border border-sage-100">
-                    <p className="text-base text-stone-600 leading-relaxed">
+                  <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-md border border-sage-100">
+                    <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
                       {item.text}
                     </p>
                   </div>
@@ -431,10 +371,10 @@ export default function About() {
       </section>
 
       {/* CTA Section - Peaceful Design */}
-      <section className="py-20 md:py-28 bg-gradient-to-b from-sage-50/40 via-sage-100/30 to-stone-50/40 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gradient-to-b from-sage-50/40 via-sage-100/30 to-stone-50/40 relative overflow-hidden">
         <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-20 right-20 w-80 h-80 bg-sage-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-stone-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-sage-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-stone-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
@@ -444,15 +384,15 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white shadow-sm rounded-full mb-8 border border-sage-100">
-              <FaPrayingHands className="w-7 h-7 sm:w-8 sm:h-8 text-sage-600" />
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white shadow-sm rounded-full mb-6 sm:mb-8 border border-sage-100">
+              <FaPrayingHands className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-sage-600" />
             </div>
             
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-stone-700 mb-6 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-stone-700 mb-4 sm:mb-6 tracking-tight">
               How Can We Assist You?
             </h2>
             
-            <p className="text-lg md:text-xl text-stone-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-stone-600 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-4">
               Our compassionate team is available 24/7 to help you with any questions or arrangements.
             </p>
             
@@ -460,13 +400,53 @@ export default function About() {
               href="/contact"
               whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-sage-600 to-sage-700 text-white rounded-full font-semibold text-base hover:shadow-xl transition-all shadow-lg"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-5 bg-gradient-to-r from-sage-600 to-sage-700 text-white rounded-full font-semibold text-sm sm:text-base hover:shadow-xl transition-all shadow-lg"
             >
               Contact Us Today
             </motion.a>
           </motion.div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 z-10 border border-white/20 hover:border-white/30 shadow-lg"
+            >
+              <FaTimes className="w-6 h-6" />
+            </button>
+
+            {/* Image container */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative max-w-7xl w-full max-h-[90vh] aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightboxImage.src}
+                alt={lightboxImage.alt}
+                fill
+                className="object-contain"
+                sizes="100vw"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
