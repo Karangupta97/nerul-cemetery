@@ -393,7 +393,7 @@ export default function About() {
             </h2>
             
             <p className="text-base sm:text-lg md:text-xl text-stone-600 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-4">
-              Our compassionate team is available 24/7 to help you with any questions or arrangements.
+              Our compassionate team is available to help you with any questions or arrangements.
             </p>
             
             <motion.a

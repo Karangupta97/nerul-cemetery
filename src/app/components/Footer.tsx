@@ -198,7 +198,7 @@ export default function Footer() {
               </li>
               <li className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-stone-700">
                 <p className="text-sage-300 text-[10px] sm:text-xs font-medium">
-                  24/7 Emergency Services Available
+                  Emergency Services Available
                 </p>
               </li>
             </ul>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: "Nerul Cemetery - Dignified Burial Services in Navi Mumbai",
     template: "%s | Nerul Cemetery"
   },
-  description: "Nerul Cemetery provides compassionate and dignified burial services in Sector 2, Nerul, Navi Mumbai. 24/7 support, peaceful grounds, and memorial services for all faiths. Contact: +91 81049 52729",
+  description: "Nerul Cemetery provides compassionate and dignified burial services in Sector 2, Nerul, Navi Mumbai. Peaceful grounds and memorial services for all faiths. Contact: +91 81049 52729",
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
@@ -38,8 +38,7 @@ export const metadata: Metadata = {
     "memorial services",
     "dignified burial",
     "Christian cemetery Nerul",
-    "peaceful resting place",
-    "24/7 burial services"
+    "peaceful resting place"
   ],
   authors: [{ name: "Nerul Cemetery" }],
   creator: "Nerul Cemetery",

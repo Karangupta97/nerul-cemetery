@@ -45,9 +45,9 @@ export default function Home() {
     },
     {
       icon: <FaClock className="w-8 h-8" />,
-      title: "24/7 Assistance",
+      title: "Timely Assistance",
       description:
-        "Round-the-clock support to help families during difficult times.",
+        "Dedicated support to help families during difficult times.",
       gradient: "from-sage-400 to-sage-600",
     },
     {
@@ -422,7 +422,7 @@ export default function Home() {
               How Can We Assist You?
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-stone-500 mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
-              Our compassionate team is available 24/7 to assist you with burial
+              Our compassionate team is available to assist you with burial
               arrangements, plot information, or any questions you may have.
             </p>
 
@@ -460,9 +460,9 @@ export default function Home() {
                   <FaClock className="w-6 h-6 sm:w-8 sm:h-8 text-sage-600" />
                 </div>
                 <h3 className="font-semibold text-stone-800 mb-2 sm:mb-3 text-base sm:text-lg">
-                  24/7 Available
+                  Always Available
                 </h3>
-                <p className="text-sm sm:text-base text-stone-600">Round-the-clock support</p>
+                <p className="text-sm sm:text-base text-stone-600">Dedicated support</p>
               </motion.div>
               <motion.div
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us - Our Story & Mission',
-  description: 'Learn about Nerul Cemetery\'s 50+ years of service providing dignified burial services in Sector 2, Nerul, Navi Mumbai. All faiths welcome. 15 acres of peaceful grounds. Compassionate 24/7 support.',
+  description: 'Learn about Nerul Cemetery\'s 50+ years of service providing dignified burial services in Sector 2, Nerul, Navi Mumbai. All faiths welcome. 15 acres of peaceful grounds. Compassionate support.',
   keywords: [
     'about Nerul Cemetery',
     'cemetery history Navi Mumbai',

@@ -332,7 +332,7 @@ export default function Notice() {
             {/* Description */}
             <p className="text-base sm:text-lg text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed px-4 font-light">
               Our compassionate team is here to help you with any inquiries about notices,
-              events, or services. We&apos;re available 24/7 to provide support and information.
+              events, or services. We&apos;re available to provide support and information.
             </p>
 
             {/* CTA Buttons */}

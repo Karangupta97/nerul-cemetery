@@ -141,7 +141,7 @@ export default function StructuredData() {
             "name": "What are the operating hours of Nerul Cemetery?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nerul Cemetery is open Monday through Saturday from 8:00 AM to 6:00 PM. We are closed on Sundays. However, our support team is available 24/7 for emergency burial services and inquiries."
+              "text": "Nerul Cemetery is open Monday through Saturday from 8:00 AM to 6:00 PM. We are closed on Sundays. However, our support team is available for emergency burial services and inquiries."
             }
           },
           {
@@ -165,7 +165,7 @@ export default function StructuredData() {
             "name": "What services does Nerul Cemetery provide?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nerul Cemetery provides comprehensive burial services including plot selection, burial arrangements, memorial services, 24/7 emergency support, and ongoing maintenance of our 15-acre grounds. Our compassionate team assists families with all aspects of burial planning and arrangements."
+              "text": "Nerul Cemetery provides comprehensive burial services including plot selection, burial arrangements, memorial services, emergency support, and ongoing maintenance of our 15-acre grounds. Our compassionate team assists families with all aspects of burial planning and arrangements."
             }
           },
           {
@@ -173,7 +173,7 @@ export default function StructuredData() {
             "name": "How can I contact Nerul Cemetery for burial arrangements?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You can contact Nerul Cemetery by calling +91 81049 52729 (available 24/7), emailing info@nerulcemetery.com, or visiting us at our office in Sector 2, Nerul, Navi Mumbai during operating hours (Monday-Saturday, 8 AM - 6 PM)."
+              "text": "You can contact Nerul Cemetery by calling +91 81049 52729, emailing info@nerulcemetery.com, or visiting us at our office in Sector 2, Nerul, Navi Mumbai during operating hours (Monday-Saturday, 8 AM - 6 PM)."
             }
           }
         ]
