@@ -49,23 +49,23 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://nerulcemetery.com'),
+  metadataBase: new URL('https://nerul.cemetery.medicares.in'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Nerul Cemetery - Dignified Burial Services in Navi Mumbai",
     description: "Compassionate burial services in Sector 2, Nerul, Navi Mumbai. Peaceful grounds, 24/7 support, memorial services for all faiths.",
-    url: 'https://nerulcemetery.com',
+    url: 'https://nerul.cemetery.medicares.in',
     siteName: 'Nerul Cemetery',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: '/logo.png',
+        url: 'https://nerul.cemetery.medicares.in/hero-cemetery.jpg',
         width: 1200,
         height: 630,
-        alt: 'Nerul Cemetery - Peaceful Resting Place',
+        alt: 'Nerul Cemetery - Peaceful Resting Place in Navi Mumbai',
       },
     ],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nerul Cemetery - Dignified Burial Services in Navi Mumbai',
     description: 'Compassionate burial services in Sector 2, Nerul, Navi Mumbai. 24/7 support and memorial services.',
-    images: ['/logo.png'],
+    images: ['https://nerul.cemetery.medicares.in/hero-cemetery.jpg'],
   },
   robots: {
     index: true,
@@ -99,7 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="canonical" href="https://nerulcemetery.com" />
+        <link rel="canonical" href="https://nerul.cemetery.medicares.in" />
         <meta name="geo.region" content="IN-MH" />
         <meta name="geo.placename" content="Nerul, Navi Mumbai" />
         <meta name="geo.position" content="19.045899;73.019477" />
