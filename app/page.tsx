@@ -134,6 +134,7 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 1.2 }}
               className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight mb-4 sm:mb-6 leading-tight tracking-tight text-white drop-shadow-2xl px-2"
             >
+              <span className="sr-only">Nerul Cemetery - </span>
               A Place of Peace <br className="hidden md:block" />
               <span className="block mt-1 sm:mt-2 bg-gradient-to-r from-white via-sage-100 to-white bg-clip-text text-transparent">
                 & Remembrance
