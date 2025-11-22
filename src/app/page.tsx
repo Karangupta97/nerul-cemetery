@@ -263,6 +263,23 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Rules & Regulations Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-center mt-10 sm:mt-12 md:mt-16"
+          >
+            <Link
+              href="/notice#rules"
+              className="group inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-linear-to-r from-stone-600 to-stone-700 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-md text-sm sm:text-base"
+            >
+              <span>View Cemetery Rules & Regulations</span>
+              <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -388,6 +405,148 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white" aria-labelledby="reviews-heading">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+            className="text-center mb-8 sm:mb-10 md:mb-12"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-sage-50 rounded-full mb-4 sm:mb-5"
+            >
+              <FaHeart className="text-sage-500 w-3.5 h-3.5" aria-hidden="true" />
+              <span className="text-xs sm:text-sm font-medium text-sage-600 tracking-wide">
+                Testimonials
+              </span>
+            </motion.div>
+            <motion.h2
+              id="reviews-heading"
+              variants={itemVariants}
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-stone-700 mb-3 sm:mb-4 tracking-tight px-4"
+            >
+              What Families Say About Us
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-sm sm:text-base text-stone-500 max-w-2xl mx-auto leading-relaxed px-4"
+            >
+              Read about the experiences of families who have trusted us during their most difficult times.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6"
+          >
+            {/* Trevor Alvares Review */}
+            <motion.div
+              variants={itemVariants}
+              className="relative bg-gradient-to-br from-white via-white to-sage-50/30 p-5 sm:p-6 md:p-7 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-sage-100"
+            >
+              {/* Decorative quote mark */}
+              <div className="absolute top-4 right-4 text-sage-200/30 text-5xl sm:text-6xl font-serif leading-none">
+                "
+              </div>
+
+              {/* Reviewer Info */}
+              <div className="relative flex items-start gap-3 mb-4">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shadow-md ring-2 ring-sage-100 flex-shrink-0">
+                  <Image
+                    src="/Review-image/Trevor Alvares.png"
+                    alt="Trevor Alvares"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 48px, 56px"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base sm:text-lg font-semibold text-stone-800 mb-0.5 truncate">
+                    Trevor Alvares
+                  </h3>
+                  {/* <p className="text-xs sm:text-sm text-stone-500 mb-1.5">Local Guide</p> */}
+                  <div className="flex items-center gap-0.5 mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400 fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-xs text-stone-400">2 years ago</p>
+                </div>
+              </div>
+
+              {/* Review Text */}
+              <div className="relative">
+                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Just wanted to say a huge thank you to Britto Undertakers at Christian Cemetery, Nerul for the smooth burial of Raymond Alvares on 15th June. Everything went perfectly, and I really appreciate their attention to detail and professionalism. The staff was amazing, providing support and understanding throughout the process. I highly recommend Britto Undertakers at Christian Cemetery to anyone needing funeral services. Thanks again for everything!
+                </p>
+              </div>
+            </motion.div>
+
+            {/* jojo Review */}
+            <motion.div
+              variants={itemVariants}
+              className="relative bg-gradient-to-br from-white via-white to-sage-50/30 p-5 sm:p-6 md:p-7 rounded-xl sm:rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-sage-100"
+            >
+              {/* Decorative quote mark */}
+              <div className="absolute top-4 right-4 text-sage-200/30 text-5xl sm:text-6xl font-serif leading-none">
+                "
+              </div>
+
+              {/* Reviewer Info */}
+              <div className="relative flex items-start gap-3 mb-4">
+                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden shadow-md ring-2 ring-sage-100 flex-shrink-0">
+                  <Image
+                    src="/Review-image/jojo.png"
+                    alt="jojo"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 48px, 56px"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base sm:text-lg font-semibold text-stone-800 mb-0.5 truncate">
+                    jojo
+                  </h3>
+                  {/* <p className="text-xs sm:text-sm text-stone-500 mb-1.5">Local Guide</p> */}
+                  <div className="flex items-center gap-0.5 mb-1">
+                    {[...Array(4)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400 fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-xs text-stone-400">2 years ago</p>
+                </div>
+              </div>
+
+              {/* Review Text */}
+              <div className="relative">
+                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                  Cemetery in Nerul for all Christian Denominations properly maintained having an environment conducive for cemetery. Basic facilities were maintained.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

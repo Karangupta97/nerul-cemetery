@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
@@ -12,10 +13,77 @@ import {
   FaInfoCircle,
   FaExclamationCircle,
   FaTools,
-  FaCalendarCheck
+  FaCalendarCheck,
+  FaClipboardList,
+  FaCheckCircle,
+  FaPhoneAlt
 } from 'react-icons/fa';
 
 export default function Notice() {
+  const [activeTab, setActiveTab] = useState<'notice' | 'rules'>('notice');
+
+  // Handle URL hash to switch tabs
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#rules') {
+      setActiveTab('rules');
+    }
+  }, []);
+
+  // Update URL hash when tab changes
+  useEffect(() => {
+    if (activeTab === 'rules') {
+      window.history.replaceState(null, '', '#rules');
+    } else {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  }, [activeTab]);
+
+  const rules = [
+    {
+      id: 1,
+      title: 'Annual Church Membership Fees',
+      description: 'Annual Church Membership Fees is Rs. 2000.',
+      icon: <FaClipboardList className="w-5 h-5" />,
+    },
+    {
+      id: 2,
+      title: 'Sunday Special Burial Charges',
+      description: 'Since on Sunday the Cemetery is closed, but if a special burial needs to be conducted, an additional charge of Rs. 1000 is payable towards grave-digging and other operational costs since it\'s beyond the normal call of duty.',
+      icon: <FaCalendarAlt className="w-5 h-5" />,
+    },
+    {
+      id: 3,
+      title: 'Grave Reuse Policy',
+      description: 'In order to reuse the available limited cemetery area, the mortal remains from the grave will be removed and put in the common bone-pit after three years from the date of burial or as soon as the lifetime facility of the person is buried.',
+      icon: <FaInfoCircle className="w-5 h-5" />,
+    },
+    {
+      id: 4,
+      title: 'Cess (Box) Wall Facility',
+      description: 'Cess (Box) Wall facility for lifetime is available on one-time charge of Rs. 10,000 (Rupees ten thousand). Within 3 years from burial, family can choose to shift the mortal remains to the assigned cell.',
+      icon: <FaTools className="w-5 h-5" />,
+    },
+    {
+      id: 5,
+      title: 'Cemetery Grounds Maintenance',
+      description: 'Visitors & relatives are requested not to plant trees on graves/burial site or pluck flowers, fruits or disturb natural vegetation around them.',
+      icon: <FaLeaf className="w-5 h-5" />,
+    },
+    {
+      id: 6,
+      title: 'Payment Receipt',
+      description: 'Receipt will be issued for every amount paid to the cemetery, kindly collect the same.',
+      icon: <FaCheckCircle className="w-5 h-5" />,
+    },
+    {
+      id: 7,
+      title: 'Assistance & Contact',
+      description: 'In case any assistance is needed, please call 8104957279.',
+      icon: <FaPhoneAlt className="w-5 h-5" />,
+    },
+  ];
+
   const notices = [
     {
       id: 1,
@@ -142,9 +210,9 @@ export default function Notice() {
               transition={{ delay: 0.3, duration: 1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight text-stone-800 mb-6 tracking-tight leading-tight"
             >
-              Notice Board
+              {activeTab === 'notice' ? 'Notice Board' : 'Rules & Regulations'}
               <span className="block mt-3 bg-linear-to-r from-sage-600 to-sage-700 bg-clip-text text-transparent font-light">
-                & Announcements
+                {activeTab === 'notice' ? '& Announcements' : '& Guidelines'}
               </span>
             </motion.h1>
 
@@ -155,9 +223,9 @@ export default function Notice() {
               transition={{ delay: 0.5, duration: 1 }}
               className="text-base sm:text-lg md:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed font-light px-4"
             >
-              Stay informed with the latest updates, events, and important announcements
-              <br className="hidden sm:block" /> 
-              from Nerul Cemetery
+              {activeTab === 'notice' 
+                ? 'Stay informed with the latest updates, events, and important announcements from Nerul Cemetery' 
+                : 'Please review our cemetery rules and regulations to ensure a respectful and peaceful environment'}
             </motion.p>
 
             {/* Decorative leaf element */}
@@ -175,7 +243,43 @@ export default function Notice() {
         </div>
       </section>
 
+      {/* Tab Section */}
+      <section className="py-4 sm:py-6 md:py-8 border-b border-sage-100 sticky top-16 sm:top-20 z-40 backdrop-blur-sm bg-white/95 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center gap-2 sm:gap-3 md:gap-4">
+            <button
+              onClick={() => setActiveTab('notice')}
+              className={`flex-1 max-w-[200px] sm:max-w-60 md:max-w-none md:flex-none px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
+                activeTab === 'notice'
+                  ? 'bg-linear-to-r from-sage-600 to-sage-700 text-white shadow-lg'
+                  : 'bg-sage-50 text-stone-700 hover:bg-sage-100 border border-sage-200'
+              }`}
+            >
+              <span className="flex items-center justify-center gap-2">
+                <FaBell className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span>Notice</span>
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveTab('rules')}
+              className={`flex-1 max-w-[200px] sm:max-w-60 md:max-w-none md:flex-none px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
+                activeTab === 'rules'
+                  ? 'bg-linear-to-r from-sage-600 to-sage-700 text-white shadow-lg'
+                  : 'bg-sage-50 text-stone-700 hover:bg-sage-100 border border-sage-200'
+              }`}
+            >
+              <span className="flex items-center justify-center gap-2">
+                <FaClipboardList className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Rules & Regulations</span>
+                <span className="sm:hidden">Rules</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Notices Section */}
+      {activeTab === 'notice' && (
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -221,14 +325,10 @@ export default function Notice() {
               <motion.div
                 key={notice.id}
                 variants={itemVariants}
-                whileHover={{
-                  y: -4,
-                  transition: { duration: 0.3, ease: "easeOut" },
-                }}
-                className="group relative bg-linear-to-br from-white via-white to-sage-50/30 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-500 border border-sage-100 overflow-hidden"
+                className="group relative bg-linear-to-br from-white via-white to-sage-50/30 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-sage-100 overflow-hidden"
               >
-                {/* Animated gradient accent on hover */}
-                <div className="absolute inset-0 bg-linear-to-r from-sage-500/0 via-sage-400/0 to-sage-500/0 group-hover:from-sage-500/5 group-hover:via-sage-400/5 group-hover:to-sage-500/5 transition-all duration-500"></div>
+                {/* Subtle gradient accent on hover */}
+                <div className="absolute inset-0 bg-linear-to-r from-sage-500/0 via-sage-400/0 to-sage-500/0 group-hover:from-sage-500/5 group-hover:via-sage-400/5 group-hover:to-sage-500/5 transition-all duration-300"></div>
 
                 {/* Priority indicator */}
                 {notice.priority === 'high' && (
@@ -245,7 +345,7 @@ export default function Notice() {
                     <div className="flex-1">
                       {/* Category & Icon */}
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 bg-linear-to-br from-sage-100 to-sage-200 rounded-2xl flex items-center justify-center text-sage-600 shadow-sm group-hover:shadow-md group-hover:scale-110 transition-all duration-300">
+                        <div className="w-12 h-12 bg-linear-to-br from-sage-100 to-sage-200 rounded-2xl flex items-center justify-center text-sage-600 shadow-sm">
                           {notice.icon}
                         </div>
                         <span className={`text-xs font-semibold px-4 py-1.5 rounded-full border ${getCategoryStyle(notice.category)}`}>
@@ -254,7 +354,7 @@ export default function Notice() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl sm:text-2xl font-semibold text-stone-800 mb-3 group-hover:text-sage-700 transition-colors duration-300">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-stone-800 mb-3">
                         {notice.title}
                       </h3>
                     </div>
@@ -286,15 +386,83 @@ export default function Notice() {
                   <p className="text-stone-700 leading-relaxed text-base">
                     {notice.description}
                   </p>
-
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-linear-to-r from-sage-500 to-sage-600 group-hover:w-full transition-all duration-700"></div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+      )}
+
+      {/* Rules & Regulations Section */}
+      {activeTab === 'rules' && (
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+            className="text-center mb-8 sm:mb-12 md:mb-16"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-sage-50 rounded-full mb-4 sm:mb-6 border border-sage-100"
+            >
+              <FaClipboardList className="text-sage-500 w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="text-xs sm:text-sm font-medium text-sage-600 tracking-wide">
+                Guidelines
+              </span>
+            </motion.div>
+            <motion.h2
+              variants={itemVariants}
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-stone-700 mb-3 sm:mb-4 tracking-tight px-2"
+            >
+              Cemetery Rules & Regulations
+            </motion.h2>
+            <motion.p
+              variants={itemVariants}
+              className="text-sm sm:text-base md:text-lg text-stone-500 max-w-2xl mx-auto leading-relaxed px-4"
+            >
+              Please familiarize yourself with our rules to maintain a peaceful and respectful environment
+            </motion.p>
+          </motion.div>
+          {/* Rules List */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
+            className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto"
+          >
+            {rules.map((rule) => (
+              <motion.div
+                key={rule.id}
+                variants={itemVariants}
+                className="bg-linear-to-br from-white via-white to-sage-50/30 rounded-xl sm:rounded-2xl shadow-md border border-sage-100 p-4 sm:p-5 md:p-6 lg:p-7 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="flex items-start gap-3 sm:gap-4">
+                  {/* Icon */}
+                  <div className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 bg-linear-to-br from-sage-100 to-sage-200 rounded-lg sm:rounded-xl flex items-center justify-center text-sage-600 shadow-sm">
+                    {rule.icon}
+                  </div>
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold text-stone-800 mb-1.5 sm:mb-2 leading-tight">
+                      {rule.title}
+                    </h3>
+                    <p className="text-stone-600 leading-relaxed text-xs sm:text-sm md:text-base">
+                      {rule.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      )}
 
       {/* CTA Section */}
       <section className="relative py-16 sm:py-20 md:py-24 bg-linear-to-br from-sage-100/70 via-sage-50 to-stone-100/60 overflow-hidden">
@@ -339,18 +507,18 @@ export default function Notice() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-linear-to-r from-sage-600 to-sage-700 text-white rounded-full font-semibold hover:shadow-2xl transition-all duration-500 shadow-lg hover:scale-110 overflow-hidden w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-linear-to-r from-sage-600 to-sage-700 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 shadow-lg overflow-hidden w-full sm:w-auto"
               >
                 <span className="relative z-10">Contact Us Today</span>
-                <FaArrowRight className="ml-3 relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-linear-to-r from-sage-700 to-sage-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <FaArrowRight className="ml-3 relative z-10" />
+                <div className="absolute inset-0 bg-linear-to-r from-sage-700 to-sage-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </Link>
               <Link
                 href="/about"
-                className="group inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-sage-600 text-sage-700 rounded-full font-semibold hover:bg-sage-600 hover:text-white backdrop-blur-sm transition-all duration-500 shadow-md hover:shadow-xl hover:scale-110 w-full sm:w-auto"
+                className="group inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 border-2 border-sage-600 text-sage-700 rounded-full font-semibold hover:bg-sage-600 hover:text-white backdrop-blur-sm transition-all duration-300 shadow-md hover:shadow-xl w-full sm:w-auto"
               >
                 Learn More
-                <FaLeaf className="ml-3 group-hover:rotate-12 transition-transform duration-500" />
+                <FaLeaf className="ml-3" />
               </Link>
             </div>
           </motion.div>

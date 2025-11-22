@@ -104,6 +104,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/notice#rules"
+                  className="text-stone-300 hover:text-sage-300 transition-colors text-xs sm:text-sm flex items-center group"
+                >
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-sage-500 rounded-full mr-2 group-hover:scale-150 transition-transform"></span>
+                  Rules & Regulations
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-stone-300 hover:text-sage-300 transition-colors text-xs sm:text-sm flex items-center group"
                 >
