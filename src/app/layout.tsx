@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/logo.png',
         width: 1200,
         height: 630,
         alt: 'Nerul Cemetery - Peaceful Resting Place',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Nerul Cemetery - Dignified Burial Services in Navi Mumbai',
     description: 'Compassionate burial services in Sector 2, Nerul, Navi Mumbai. 24/7 support and memorial services.',
-    images: ['/og-image.jpg'],
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
